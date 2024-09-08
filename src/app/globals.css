@@ -25,3 +25,28 @@ body {
     text-wrap: balance;
   }
 }
+
+.glow {
+  background-image: linear-gradient(to left, #d1fcf7, #e6cfff, #f9d3ff, #f9baa3, #ffdfa2, #ffcab3, rgb(255, 255, 255));
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 65px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: rgb(186, 255, 248);
+  /* Keep the text color white */
+  background-size: 200%;
+  /* Expand background for animation effect */
+  animation: text-animate 10s linear infinite;
+}
+
+@keyframes text-animate {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
