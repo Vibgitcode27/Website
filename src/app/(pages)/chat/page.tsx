@@ -23,13 +23,32 @@ export default function ChatPage() {
     setInputValue(e.target.value);
   };
 
-  const handleBotResponse = (userMessage: string) => {
-    // Simulate a bot response after user submits a message
-    const botResponse = `You said: "${userMessage}", here's my response.`;
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: botResponse, sender: "bot" },
-    ]);
+  const handleBotResponse = async (userMessage: string) => {
+    try {
+      const response = await fetch("http://127.0.0.1:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query: userMessage }),
+      });
+
+      const data = await response.json();
+      const botResponse = data.response;
+
+      // Update the messages with the bot's response after receiving it
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: botResponse, sender: "bot" },
+      ]);
+    } catch (error) {
+      console.error("Error:", error);
+
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: "Error: Unable to get response from the bot.", sender: "bot" },
+      ]);
+    }
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,8 +58,8 @@ export default function ChatPage() {
         ...prevMessages,
         { text: inputValue, sender: "human" },
       ]);
-      handleBotResponse(inputValue);
-      setInputValue("");
+      handleBotResponse(inputValue); // Fetch the bot response after submitting the user's message
+      setInputValue(""); // Clear the input after submission
     }
   };
 
