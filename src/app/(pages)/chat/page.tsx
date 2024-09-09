@@ -1,4 +1,5 @@
 "use client";
+import { UserButton } from "@clerk/nextjs";
 import { Button, Card, Input, Avatar } from "antd";
 import { useState } from "react";
 import { Flex } from "antd";
@@ -139,13 +140,16 @@ export default function ChatPage() {
                   {msg.text}
                 </div>
                 {msg.sender === "human" && (
-                  <Avatar
-                    style={{
-                      backgroundColor: "#87d068",
-                      marginLeft: "10px",
-                    }}
-                    icon={<UserOutlined />}
-                  />
+                  
+                  <div style={{ marginLeft : "10px"}}>
+                    <UserButton
+                      // style={{
+                        //   backgroundColor: "#87d068",
+                        //   marginLeft: "10px",
+                        // }}
+                        // icon={<UserOutlined />}
+                        />
+                  </div>
                 )}
               </div>
             ))}
