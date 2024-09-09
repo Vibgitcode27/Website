@@ -36,7 +36,6 @@ export default function ChatPage() {
       const data = await response.json();
       const botResponse = data.response;
 
-      // Update the messages with the bot's response after receiving it
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: botResponse, sender: "bot" },
@@ -58,8 +57,8 @@ export default function ChatPage() {
         ...prevMessages,
         { text: inputValue, sender: "human" },
       ]);
-      handleBotResponse(inputValue); // Fetch the bot response after submitting the user's message
-      setInputValue(""); // Clear the input after submission
+      handleBotResponse(inputValue);
+      setInputValue("");
     }
   };
 
