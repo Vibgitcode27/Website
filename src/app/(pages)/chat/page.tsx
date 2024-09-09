@@ -3,16 +3,21 @@ import { Button , Card, Flex, Typography } from "antd";
 import { PlaceholdersAndVanishInput } from "@/app/components/vanishInput";
 
 export default function ChatPage() {
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("Input changed:", e.target.value);
-    };
-
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Form submitted!");
-    };
-
-    const placeholders = ["Ask", "Know", "Placeholder 3"];
+    const placeholders = [
+    "What's the first rule of Fight Club?",
+    "Who is Tyler Durden?",
+    "Where is Andrew Laeddis Hiding?",
+    "Write a Javascript method to reverse a string",
+    "How to assemble your own PC?",
+  ];
+ 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
     
     return (
         <div className="h-[50rem] w-full dark:bg-black bg-black  dark:bg-grid-black/[0.2] bg-grid-white/[0.2] relative flex items-center justify-center">
@@ -27,8 +32,8 @@ export default function ChatPage() {
                     </Card>
                     <PlaceholdersAndVanishInput
                         placeholders={placeholders}
-                        onChange={handleInputChange}
-                        onSubmit={handleFormSubmit}
+                        onChange={handleChange}
+                        onSubmit={onSubmit}
                     />
                 </Flex>
             </Card>
