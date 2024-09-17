@@ -64,101 +64,62 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="h-[50rem] w-full dark:bg-black bg-black  dark:bg-grid-black/[0.2] bg-grid-white/[0.2] relative flex items-center justify-center">
+    <div className="min-h-screen w-full dark:bg-black bg-black dark:bg-grid-black/[0.2] bg-grid-white/[0.2] relative flex items-center justify-center p-4">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)]"></div>
 
       <Card
+        className="w-full max-w-[900px] rounded-[30px] h-auto min-h-[80vh]"
         style={{
           backgroundColor: "transparent",
-          width: "900px",
-          borderRadius: "30px",
-          height: "900px",
         }}
       >
-        <Flex justify="center" align="center" vertical>
-          <h1
-            style={{
-              color: "white",
-              fontSize: "65px",
-              fontWeight: "600",
-              marginBottom: "-30px",
-            }}
-          >
-            Your <span className="glow">Personal</span>
-          </h1>
-          <h1
-            style={{
-              color: "white",
-              fontSize: "65px",
-              fontWeight: "600",
-            }}
-          >
-            AI Advisor
-          </h1>
+        <Flex justify="center" align="center" vertical className="h-full">
+          <div className="text-center mb-6">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+              Your <span className="glow">Personal</span>
+              <br />
+              AI Advisor
+            </h1>
+          </div>
           <Card
-            style={{
-              width: "850px",
-              backgroundColor: "transparent",
-              border: "none",
-              height: "600px",
-              overflowY: "scroll",
-              display: "flex",
-              flexDirection: "column",
-              padding: "10px",
-            }}
+            className="w-full max-w-[850px] bg-transparent border-none h-[60vh] overflow-y-auto flex flex-col p-2 md:p-4"
           >
             {messages.map((msg, index) => (
               <div
                 key={index}
-                style={{
-                  display: "flex",
-                  justifyContent: msg.sender === "human" ? "flex-end" : "flex-start",
-                  alignItems: "center",
-                  marginBottom: "10px",
-                }}
+                className={`flex ${msg.sender === "human" ? "justify-end" : "justify-start"} items-center mb-3`}
               >
                 {msg.sender === "bot" && (
                   <Avatar
+                    className="mr-2"
                     style={{
                       backgroundColor: "#f56a00",
-                      marginRight: "10px",
                     }}
                     icon={<RobotOutlined />}
                   />
                 )}
                 <div
-                  style={{
-                    backgroundColor: msg.sender === "human" ? "#1d1d25" : "#ffffff43",
-                    color: msg.sender === "human" ? "white" : "white",
-                    padding: "10px 15px",
-                    borderRadius: "15px",
-                    fontSize: "17px",
-                    maxWidth: "75%",
-                    wordWrap: "break-word",
-                  }}
+                  className={`px-3 py-2 rounded-2xl text-sm md:text-base max-w-[75%] break-words ${
+                    msg.sender === "human" ? "bg-[#1d1d25] text-white" : "bg-[#ffffff43] text-white"
+                  }`}
                 >
                   {msg.text}
                 </div>
                 {msg.sender === "human" && (
-                  
-                  <div style={{ marginLeft : "10px"}}>
-                    <UserButton
-                      // style={{
-                        //   backgroundColor: "#87d068",
-                        //   marginLeft: "10px",
-                        // }}
-                        // icon={<UserOutlined />}
-                        />
+                  <div className="ml-2">
+                    <UserButton />
                   </div>
                 )}
               </div>
             ))}
           </Card>
-          <PlaceholdersAndVanishInput
-            placeholders={placeholders}
-            onChange={handleChange}
-            onSubmit={onSubmit}
-          />
+          <div className="w-full max-w-[850px]">
+            <PlaceholdersAndVanishInput
+              placeholders={placeholders}
+              onChange={handleChange}
+              onSubmit={onSubmit}
+            />
+          </div>
         </Flex>
       </Card>
     </div>
