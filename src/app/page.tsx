@@ -23,13 +23,15 @@ export default function App() {
     }, [user]);
 
     return (
-        <>
+        <>  
             <Navbar/>
-            <Hero />
-            <About />
-           
-           
-          
+            <div style={{display:"flex" , justifyContent:"center" , alignItems:"center"}}>
+                <Hero/> 
+            </div>
+            <div style={{display:"flex" , justifyContent:"center" , alignItems:"center"}}>
+                <About />
+            </div>
+
             <ScrollToTop/>
         </>
     );
