@@ -1,13 +1,11 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Flex } from "antd";
 import { cn } from "@/lib/utils";
-import { ModalProvider, Modal } from "@/app/components/ui/modal";
+import { ModalProvider , Modal } from "@/app/components/ui/modal";
 import { Skeleton3Content } from "@/app/components/uploadModal";
-import { Trash } from "lucide-react";
-
 interface File {
   id: number;
   name: string;
@@ -20,7 +18,6 @@ const FileDisplay: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [selectedFiles, setSelectedFiles] = useState<number[]>([]);
   const [isClient, setIsClient] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -59,24 +56,6 @@ const FileDisplay: React.FC = () => {
     }
   };
 
-  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const uploadedFiles = event.target.files;
-    if (uploadedFiles) {
-      const newFiles: File[] = Array.from(uploadedFiles).map((file, index) => ({
-        id: Date.now() + index,
-        name: file.name,
-        type: file.type,
-        lastModified: file.lastModified,
-        size: file.size,
-      }));
-      setFiles(prevFiles => [...prevFiles, ...newFiles]);
-    }
-  };
-
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
   if (!isClient) {
     return null;
   }
@@ -93,15 +72,7 @@ const FileDisplay: React.FC = () => {
         <h1 className="text-white text-center text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8">Uploaded Files</h1>
         
         <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row justify-between gap-2">
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleUpload}
-            className="hidden"
-            multiple
-          />
           <button
-            onClick={triggerFileInput}
             className="bg-indigo-600 text-white px-3 py-2 text-sm sm:text-base rounded-lg hover:bg-indigo-700 transition-colors duration-300 w-full sm:w-auto"
           >
             Upload Files
@@ -111,7 +82,7 @@ const FileDisplay: React.FC = () => {
             className="bg-red-600 text-white px-3 py-2 text-sm sm:text-base rounded-lg hover:bg-red-700 transition-colors duration-300 flex items-center justify-center w-full sm:w-auto"
             disabled={selectedFiles.length === 0}
           >
-            <Trash className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+            {/* <TrashIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" /> */}
             Delete Selected ({selectedFiles.length})
           </button>
         </div>
@@ -161,7 +132,7 @@ const FileDisplay: React.FC = () => {
                       className="text-red-500 hover:text-red-600 transition-colors duration-300"
                       aria-label="Delete file"
                     >
-                      <Trash className="w-4 h-4 sm:w-5 sm:h-5" />
+                      {/* <TrashIcon className="w-4 h-4 sm:w-5 sm:h-5" /> */}
                     </button>
                   </div>
                 </div>

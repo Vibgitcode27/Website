@@ -1,7 +1,7 @@
 import { Button } from "./ui/button";
 import { buttonVariants } from "./ui/button";
 import { HeroCards } from "./HeroCards";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+// import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export const Hero = () => {
   return (
@@ -38,7 +38,7 @@ export const Hero = () => {
             })}`}
           >
             Github Repository
-            <GitHubLogoIcon className="ml-2 w-5 h-5" />
+            {/* <GitHubLogoIcon className="ml-2 w-5 h-5" /> */}
           </a>
         </div>
       </div>
