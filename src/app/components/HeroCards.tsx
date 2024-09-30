@@ -33,7 +33,7 @@ export const HeroCards = () => {
           </div>
         </CardHeader>
 
-        <CardContent>Sandesh: Intelligent Email Assistant!</CardContent>
+        <CardContent>Govio: AI Office Buddy</CardContent>
       </Card>
 
       {/* Team */}
@@ -59,18 +59,7 @@ export const HeroCards = () => {
 
         <CardFooter>
           <div>
-            <a
-              rel="noreferrer noopener"
-              href="https://github.com/leoMirandaa"
-              target="_blank"
-              className={buttonVariants({
-                variant: "ghost",
-                size: "sm",
-              })}
-            >
-              <span className="sr-only">Github icon</span>
-              <GitHubLogoIcon className="w-5 h-5" />
-            </a>
+           
           </div>
         </CardFooter>
       </Card>

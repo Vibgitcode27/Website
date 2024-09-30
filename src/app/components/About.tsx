@@ -20,16 +20,12 @@ export const About = () => {
                 <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text" style={{color:"white"}}>
                   About{" "}
                 </span>
-                Sandesh
+                Govio
               </h2>
               <p className="text-xl text-muted-foreground mt-4">
-                The Intelligent Email Assistant enhances productivity by automating email management tasks.
-                It fetches emails, summarizes them using transformer models for concise overviews, and categorizes
-                them into folders such as work, personal, and promotions. By prioritizing emails based on importance
-                and suggesting quick responses through NLP models, it helps users focus on critical messages and respond
-                swiftly. Advanced search and filtering options further streamline email organization, making it easier
-                for users to navigate and manage their inbox efficiently. Overall, the assistant saves time and optimizes
-                communication workflows, offering a valuable solution for handling email overload effectively.
+              Govio is your smart, AI-powered assistant designed to handle all your organizational queries with ease and speed. From HR policies and IT support to company events, Govio has you covered. Built with cutting-edge NLP and deep learning, it understands and responds to employee questions, ensuring quick, accurate solutions. Plus, Govio’s document processing capabilities allow it to extract, summarize, and analyze important information from any document you upload.
+
+Scalable to handle multiple users at once, Govio delivers a smooth experience with response times under 5 seconds. Security is key, with 2-factor authentication ensuring that access stays safe, while an inbuilt filter keeps the chat professional by blocking inappropriate language. Govio is your go-to virtual assistant for navigating the complexities of the workplace!
               </p>
             </div>
           </div>

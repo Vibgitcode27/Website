@@ -19,7 +19,12 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { LogoIcon } from "./Icons";
 
-export const Navbar = () => {
+interface NavbarProps {
+  username: string | null;
+}
+
+
+export const Navbar = ({ usernames }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isClient, setIsClient] = useState<boolean>(false);
 
