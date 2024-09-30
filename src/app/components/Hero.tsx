@@ -1,6 +1,4 @@
 import { Button, Modal } from 'antd';
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
-import { buttonVariants } from './ui/button';
 import { HeroCards } from './HeroCards';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -58,7 +56,7 @@ export const Hero = ({ username }: HeroProps) => {
         </p>
        
         <div className="space-y-4 md:space-y-0 md:space-x-4"> 
-          {usernames?<><Button className="w-full md:w-1/3" onClick={handleModalOpen}>
+          {username?<><Button className="w-full md:w-1/3" onClick={handleModalOpen}>
             Get Started
           </Button></> : <></>}
          

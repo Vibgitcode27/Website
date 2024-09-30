@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { UserButton } from "@clerk/nextjs";
 import { Button, Card, Input, Avatar } from "antd";
 import { useState } from "react";
@@ -26,12 +26,15 @@ export default function ChatPage() {
 
   const handleBotResponse = async (userMessage: string) => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/chat", {
+      const response = await fetch("http://ec2-54-79-69-88.ap-southeast-2.compute.amazonaws.com:8000/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query: userMessage }),
+        body: JSON.stringify({ 
+          query: userMessage,
+          db_url: null 
+        }),
       });
 
       const data = await response.json();
